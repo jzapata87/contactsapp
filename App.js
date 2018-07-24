@@ -1,4 +1,5 @@
 import React from 'react';
+import Row from './Row.js';
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 
@@ -19,11 +20,8 @@ export default class App extends React.Component {
         <Button title="toggle contacts" onPress={this.toggleContacts} />
         <ScrollView>
             { contacts.map(contact => (
+              <Row {...contact}/>
 
-            <View key={contact.key}>
-              <Text>{contact.name}</Text>
-              <Text>{contact.phone}</Text>
-            </View>
           ))}
         </ScrollView>
       </View>
