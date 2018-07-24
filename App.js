@@ -17,9 +17,15 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Button title="toggle contacts" onPress={this.toggleContacts} />
-        <View> { contacts.map(contact => (
-          <View>{contacts.name}</View>
-        ))}</View>
+        <ScrollView>
+            { contacts.map(contact => (
+
+            <View key={contact.key}>
+              <Text>{contact.name}</Text>
+              <Text>{contact.phone}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     );
   }
@@ -29,5 +35,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    },
+    }
 });
